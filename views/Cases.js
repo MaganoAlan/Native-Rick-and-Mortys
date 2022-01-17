@@ -1,12 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  View,
-  Text,
-  Button,
-  FlatList,
-  TextInput,
-  StyleSheet,
-} from 'react-native';
+import {View, Text, Button, FlatList, StyleSheet} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Separator from '../components/Separator';
 
@@ -21,7 +14,7 @@ const Item = ({title, date, episode}) => (
 
 function Cases({navigation}) {
   const [cases, setCases] = useState([]);
-  const [text, setText] = useState('');
+  // const [text, setText] = useState('');
 
   const renderItem = ({item}) => (
     <Item title={item.name} date={item.air_date} episode={item.episode} />

@@ -10,6 +10,7 @@ import {
   ScrollView,
 } from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
+import Pagination from '../components/Pagination';
 import Separator from '../components/Separator';
 
 const Item = ({title, status, species, gender, source}) => (
@@ -33,14 +34,29 @@ const Item = ({title, status, species, gender, source}) => (
 
 function DetailsScreen({navigation}) {
   const [countries, setCountries] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
-    fetch('https://rickandmortyapi.com/api/character')
+    fetch(`https://rickandmortyapi.com/api/character?page=${page}`)
       .then(response => response.json())
       .then(response => setCountries(response.results));
-  }, []);
+  }, [page]);
 
   /*  console.warn(countries.results); */
+  function nextPage() {
+    if (page >= 42) {
+      console.warn('Não existem mais páginas');
+    } else {
+      setPage(page + 1);
+    }
+  }
+  function prevPage() {
+    if (page <= 1) {
+      console.warn('Primeira página');
+    } else {
+      setPage(page - 1);
+    }
+  }
 
   const renderItem = ({item}) => (
     <View style={styles.card}>
@@ -56,7 +72,7 @@ function DetailsScreen({navigation}) {
   return (
     <SafeAreaView style={styles.background}>
       <View>
-        <Text style={styles.container}>Personagens</Text>
+        <Pagination page={page} nextPage={nextPage} prevPage={prevPage} />
         <Button title="Home" onPress={() => navigation.navigate('Home')} />
 
         <FlatList
