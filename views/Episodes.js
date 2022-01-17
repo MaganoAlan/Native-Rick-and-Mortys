@@ -12,7 +12,7 @@ const Item = ({title, date, episode}) => (
   </View>
 );
 
-function Cases({navigation}) {
+function Episodes({navigation}) {
   const [cases, setCases] = useState([]);
   // const [text, setText] = useState('');
 
@@ -73,4 +73,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Cases;
+export default Episodes;

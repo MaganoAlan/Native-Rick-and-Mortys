@@ -3,9 +3,9 @@ import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './views/HomeScreen';
-import DetailsScreen from './views/DetailsScreen';
-import Cases from './views/Cases';
 import Locations from './views/Locations';
+import Characters from './views/Characters';
+import Episodes from './views/Episodes';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,8 +14,8 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Personagens" component={DetailsScreen} />
-        <Stack.Screen name="Episódios" component={Cases} />
+        <Stack.Screen name="Personagens" component={Characters} />
+        <Stack.Screen name="Episódios" component={Episodes} />
         <Stack.Screen name="Localidades" component={Locations} />
       </Stack.Navigator>
     </NavigationContainer>

@@ -32,7 +32,7 @@ const Item = ({title, status, species, gender, source}) => (
   </View>
 );
 
-function DetailsScreen({navigation}) {
+function Characters({navigation}) {
   const [countries, setCountries] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -118,4 +118,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default DetailsScreen;
+export default Characters;
