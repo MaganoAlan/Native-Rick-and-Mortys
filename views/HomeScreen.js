@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {View, Text, Button, StyleSheet} from 'react-native';
+import {View, Text, Button, StyleSheet, Image} from 'react-native';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Separator from '../components/Separator';
 
@@ -8,6 +8,12 @@ function HomeScreen({navigation}) {
   return (
     <SafeAreaView style={styles.background}>
       <View>
+        <Image
+          style={styles.logo}
+          source={{
+            uri: 'https://d1qxviojg2h5lt.cloudfront.net/images/01CQKAF6M8TZR687P4GNX7FEBG/rickmorty400.png',
+          }}
+        />
         <Text style={styles.container}>API Rick and Mortys</Text>
         <Button
           title="Personagens"
@@ -35,8 +41,9 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   logo: {
-    width: 50,
-    height: 50,
+    width: 400,
+    height: 400,
+    alignSelf: 'center',
   },
   background: {
     backgroundColor: '#e8fce9',
